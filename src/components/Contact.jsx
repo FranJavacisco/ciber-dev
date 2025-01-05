@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Instagram } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import emailjs from '@emailjs/browser';
+import { CustomCaptcha } from '../ui/captcha';
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -15,6 +16,7 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   // Validación del email
   const isValidEmail = (email) => {
@@ -36,6 +38,13 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
+
+    // Validación del CAPTCHA
+    if (!isCaptchaVerified) {
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
 
     // Validaciones básicas
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
@@ -73,6 +82,7 @@ const Contact = () => {
         subject: '',
         message: ''
       });
+      setIsCaptchaVerified(false); // Reset CAPTCHA after successful submission
     } catch (error) {
       console.error('Error al enviar el email:', error);
       setSubmitStatus('error');
@@ -290,10 +300,15 @@ const Contact = () => {
                 />
               </div>
 
+              {/* CAPTCHA */}
+              <div className="mb-6">
+                <CustomCaptcha onVerify={(status) => setIsCaptchaVerified(status)} />
+              </div>
+
               {/* Submit Button */}
               <motion.button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !isCaptchaVerified}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full px-8 py-4 bg-purple-600 text-white 
