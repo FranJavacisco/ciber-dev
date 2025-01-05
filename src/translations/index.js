@@ -1,3 +1,5 @@
+// File path: src/translations.js
+
 const translations = {
     en: {
         // Navigation
@@ -63,6 +65,14 @@ const translations = {
         view_live: "View Live",
         view_more: "View More Projects",
 
+        // Project titles and descriptions
+        project_titles: {
+            universe_travel: "Dynamic and modern landing page for a space travel company, built with React and Tailwind CSS",
+            fusion_bioart: "FusionBioArt is an immersive web platform that fuses digital art with biotechnological elements. With a modern and dynamic interface",
+            oasis_var: "Oasis-Var is a web environment inspired by Ready Player One, designed to be responsive, interactive and visually appealing.",
+            pet_fashion: "E-commerce platform specialized in pet fashion. With an elegant design and an intuitive interface, a unique shopping experience for pet lovers."
+        },
+
         // Blog
         blog_title: 'Blog & Insights',
         blog_subtitle: 'Sharing knowledge about development, security, and technology',
@@ -100,7 +110,7 @@ const translations = {
     },
 
     es: {
-        // Navegación
+        // Navigation
         nav_home: 'Inicio',
         nav_about: 'Sobre Mí',
         nav_skills: 'Habilidades',
@@ -115,7 +125,7 @@ const translations = {
         hero_blog: 'Leer Blog',
         hero_scroll: 'Desplázate para explorar',
 
-        // Sobre Mí
+        // About
         about_heading_1: "Enfocado en",
         about_heading_2: "Seguridad y Experiencias Web",
         about_description: "Apasionado por desarrollar interfaces web seguras y visualmente atractivas, combinando mis habilidades en desarrollo frontend y ciberseguridad para crear soluciones innovadoras y confiables.",
@@ -136,7 +146,7 @@ const translations = {
         about_specialty_learning_desc: "Compromiso con mantenerme actualizado con nuevas herramientas y tendencias en desarrollo y ciberseguridad.",
         about_cta: "Trabajemos Juntos",
 
-        // Habilidades
+        // Skills
         skills_title: 'Habilidades y Tecnologías',
         skills_subtitle: 'Un conjunto completo de habilidades y tecnologías con las que trabajo',
         skills_card_1_title: 'Desarrollo Frontend',
@@ -152,7 +162,7 @@ const translations = {
         skills_card_6_title: 'Rendimiento y Optimización',
         skills_card_6_desc: 'Enfocado en la optimización de aplicaciones web para velocidad, eficiencia y mejor experiencia de usuario.',
 
-        // Proyectos
+        // Projects Section
         projects_title: "Proyectos Destacados",
         projects_subtitle: "Explora una selección de mis proyectos recientes que muestran varias tecnologías y habilidades.",
         filter_all: "Todos",
@@ -162,6 +172,14 @@ const translations = {
         view_code: "Ver Código",
         view_live: "Ver en Vivo",
         view_more: "Ver Más Proyectos",
+
+        // Project titles and descriptions
+        project_titles: {
+            universe_travel: "Landing page dinámica y moderna para una empresa de viajes espaciales, construida con React y Tailwind CSS",
+            fusion_bioart: "FusionBioArt es una plataforma web inmersiva que fusiona arte digital con elementos biotecnológicos. Con una interfaz moderna y dinámica",
+            oasis_var: "Oasis-Var es un entorno web inspirado en Ready Player One, diseñado para ser responsive, interactivo y visualmente atractivo.",
+            pet_fashion: "Plataforma de comercio electrónico especializada en moda para mascotas. Con un diseño elegante y una interfaz intuitiva, una experiencia de compra única para los amantes de las mascotas."
+        },
 
         // Blog
         blog_title: 'Blog y Artículos',
@@ -180,7 +198,7 @@ const translations = {
             all: 'Todos'
         },
 
-        // Contacto
+        // Contact
         contact_title: 'Contacto',
         contact_subtitle: 'Hablemos sobre cómo podemos trabajar juntos',
         form_name: 'Nombre',
@@ -192,7 +210,7 @@ const translations = {
         form_success: '¡Mensaje enviado con éxito!',
         form_error: 'Algo salió mal. Por favor, intenta de nuevo.',
 
-        // Redes Sociales
+        // Social
         social_follow: 'Sígueme',
         social_connect: 'Conéctate conmigo',
         social_linkedin: 'Perfil de LinkedIn',
@@ -201,3 +219,4 @@ const translations = {
 };
 
 export default translations;
+
