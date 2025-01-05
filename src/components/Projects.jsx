@@ -1,3 +1,5 @@
+// File path: src/components/Projects.js
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Code } from 'lucide-react';
@@ -5,14 +7,15 @@ import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
 const Projects = () => {
-  const { t } = useLanguage();
-  const { theme } = useTheme();
-  const [filter, setFilter] = useState('all');
+  const { t } = useLanguage(); // Hook para obtener traducciones
+  const { theme } = useTheme(); // Hook para obtener el tema actual
+  const [filter, setFilter] = useState('all'); // Estado para el filtro seleccionado
 
+  // Definición de proyectos
   const projects = [
     {
       id: 1,
-      titleKey: 'project_universe_travel',
+      titleKey: 'universe_travel',
       image: "/universe-travel.png",
       category: "frontend",
       tech: ["React", "Tailwind", "JavaScript (ES6+)", "Vite"],
@@ -23,7 +26,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      titleKey: 'project_fusion_bioart',
+      titleKey: 'fusion_bioart',
       image: "/fusion-bioart.png",
       category: "frontend",
       tech: ["React", "Vite", "Tailwind", "Framer Motion"],
@@ -33,7 +36,7 @@ const Projects = () => {
     },
     {
       id: 3,
-      titleKey: 'project_oasis_var',
+      titleKey: 'oasis_var',
       image: "/oasis-var.png",
       category: "frontend",
       tech: ["React", "Tailwind", "Vite"],
@@ -43,7 +46,7 @@ const Projects = () => {
     },
     {
       id: 4,
-      titleKey: 'project_pet_fashion',
+      titleKey: 'pet_fashion',
       image: "/petcare.png",
       category: "frontend",
       tech: ["React", "Vite", "Tailwind"],
@@ -53,6 +56,7 @@ const Projects = () => {
     }
   ];
 
+  // Categorías disponibles para los filtros
   const categories = [
     { value: 'all', label: 'filter_all' },
     { value: 'frontend', label: 'filter_frontend' },
@@ -60,10 +64,12 @@ const Projects = () => {
     { value: 'fullstack', label: 'filter_fullstack' }
   ];
 
+  // Filtrar proyectos según la categoría seleccionada
   const filteredProjects = filter === 'all' 
     ? projects 
     : projects.filter(project => project.category === filter);
 
+  // Variantes para animaciones con Framer Motion
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -79,20 +85,20 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
-      {/* Background */}
+      {/* Fondo dinámico según el tema */}
       <div className="absolute inset-0 transition-colors duration-300
-                    dark:bg-gradient-to-b dark:from-blue-950 dark:to-purple-950
-                    bg-gradient-to-b from-gray-50 to-purple-50">
+                      dark:bg-gradient-to-b dark:from-blue-950 dark:to-purple-950
+                      bg-gradient-to-b from-gray-50 to-purple-50">
         <div className="absolute top-1/4 right-0 w-96 h-96 
-                      dark:bg-purple-600/20 bg-purple-300/20 
-                      rounded-full blur-3xl"></div>
+                        dark:bg-purple-600/20 bg-purple-300/20 
+                        rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 
-                      dark:bg-blue-600/20 bg-blue-300/20 
-                      rounded-full blur-3xl"></div>
+                        dark:bg-blue-600/20 bg-blue-300/20 
+                        rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
+        {/* Título de la sección */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -107,7 +113,7 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
+        {/* Filtros para proyectos */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -128,7 +134,7 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Grid de proyectos */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -143,24 +149,24 @@ const Projects = () => {
               whileHover={{ y: -5 }}
               className="group relative rounded-2xl overflow-hidden"
             >
-              {/* Card Background with Gradient */}
+              {/* Fondo del proyecto */}
               <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-blue-900/50 dark:to-purple-900/50
-                           bg-white backdrop-blur-sm transition-colors duration-300"></div>
+                             bg-white backdrop-blur-sm transition-colors duration-300"></div>
               
-              {/* Project Image */}
+              {/* Imagen del proyecto */}
               <div className="relative aspect-video overflow-hidden">
                 <img
                   src={project.image}
                   alt={t(`${project.titleKey}_title`)}
                   className="w-full h-full object-cover transition-transform duration-500 
-                           group-hover:scale-105"
+                             group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t 
-                              dark:from-blue-950/90 dark:to-transparent
-                              from-gray-900/90 to-transparent"></div>
+                                dark:from-blue-950/90 dark:to-transparent
+                                from-gray-900/90 to-transparent"></div>
               </div>
 
-              {/* Category Badge */}
+              {/* Categoría */}
               <div className="absolute top-4 right-4">
                 <span className={`px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2
                   ${project.category === 'security' 
@@ -173,7 +179,7 @@ const Projects = () => {
                 </span>
               </div>
 
-              {/* Project Content */}
+              {/* Contenido del proyecto */}
               <div className="relative p-6">
                 <h3 className="text-xl font-bold dark:text-white text-gray-900 mb-2">
                   {t(`${project.titleKey}_title`)}
@@ -182,13 +188,13 @@ const Projects = () => {
                   {t(`${project.titleKey}_desc`)}
                 </p>
 
-                {/* Tech Stack */}
+                {/* Tecnologías */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
                       className="px-3 py-1 text-sm dark:bg-blue-900/50 bg-blue-100
-                              dark:text-blue-300 text-blue-700 rounded-full"
+                                  dark:text-blue-300 text-blue-700 rounded-full"
                     >
                       {tech}
                     </span>
@@ -202,7 +208,7 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center dark:text-gray-300 text-gray-600
-                             hover:text-purple-500 transition-colors duration-300"
+                               hover:text-purple-500 transition-colors duration-300"
                   >
                     <Github className="w-5 h-5 mr-2" />
                     {t('view_code')}
@@ -212,7 +218,7 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center dark:text-gray-300 text-gray-600
-                             hover:text-purple-500 transition-colors duration-300"
+                               hover:text-purple-500 transition-colors duration-300"
                   >
                     <ExternalLink className="w-5 h-5 mr-2" />
                     {t('view_live')}
@@ -223,7 +229,7 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* More Projects Link */}
+        {/* Más proyectos */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -235,12 +241,12 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3 border-2
-                     dark:border-purple-500 border-purple-400
-                     dark:text-purple-400 text-purple-600
-                     hover:bg-purple-500 hover:text-white 
-                     dark:hover:border-purple-400
-                     rounded-full transition-all duration-300
-                     transform hover:scale-105"
+                       dark:border-purple-500 border-purple-400
+                       dark:text-purple-400 text-purple-600
+                       hover:bg-purple-500 hover:text-white 
+                       dark:hover:border-purple-400
+                       rounded-full transition-all duration-300
+                       transform hover:scale-105"
           >
             <Github className="w-5 h-5 mr-2" />
             {t('view_more')}

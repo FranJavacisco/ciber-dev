@@ -1,5 +1,3 @@
-// File path: src/translations.js
-
 const translations = {
     en: {
         // Navigation
