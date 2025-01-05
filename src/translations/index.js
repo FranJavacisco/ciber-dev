@@ -1,3 +1,4 @@
+// src/translations.js
 const translations = {
     en: {
         // Navigation
@@ -63,18 +64,19 @@ const translations = {
         view_live: "View Live",
         view_more: "View More Projects",
 
+        // Project titles and descriptions
         project_titles: {
-            universe_travel: "Dynamic and modern landing page for a space travel company, built with React and Tailwind CSS",
-            universe_travel_desc: "A modern web application for a space travel company featuring responsive design, interactive animations, and seamless user experience.",
+            universe_travel: "Dynamic and modern landing page for a space travel company",
+            universe_travel_desc: "A modern web application for a space travel company featuring responsive design, interactive animations, and seamless user experience. Built with React and Tailwind CSS.",
 
-            fusion_bioart: "FusionBioArt is an immersive web platform that fuses digital art with biotechnological elements.",
-            fusion_bioart_desc: "With a modern and dynamic interface, this platform showcases the intersection of technology and biological art through interactive experiences.",
+            fusion_bioart: "FusionBioArt - Digital Art Platform",
+            fusion_bioart_desc: "An immersive web platform that fuses digital art with biotechnological elements. Features a modern and dynamic interface with interactive experiences.",
 
-            oasis_var: "Oasis-Var is a web environment inspired by Ready Player One",
-            oasis_var_desc: "Designed to be responsive, interactive and visually appealing, creating an immersive digital experience.",
+            oasis_var: "Oasis-Var Virtual Environment",
+            oasis_var_desc: "A web environment inspired by Ready Player One, designed to be responsive, interactive and visually appealing, creating an immersive digital experience.",
 
-            pet_fashion: "E-commerce platform specialized in pet fashion",
-            pet_fashion_desc: "With an elegant design and an intuitive interface, a unique shopping experience for pet lovers."
+            pet_fashion: "PetCare Fashion E-commerce",
+            pet_fashion_desc: "E-commerce platform specialized in pet fashion with an elegant design and intuitive interface, providing a unique shopping experience for pet lovers."
         },
 
         // Blog
@@ -177,18 +179,19 @@ const translations = {
         view_live: "Ver en Vivo",
         view_more: "Ver Más Proyectos",
 
+        // Project titles and descriptions
         project_titles: {
-            universe_travel: "Landing page dinámica y moderna para una empresa de viajes espaciales",
-            universe_travel_desc: "Una aplicación web moderna para una empresa de viajes espaciales con diseño responsive, animaciones interactivas y experiencia de usuario fluida.",
+            universe_travel: "Landing page dinámica y moderna para empresa de viajes espaciales",
+            universe_travel_desc: "Una aplicación web moderna para una empresa de viajes espaciales con diseño responsive, animaciones interactivas y experiencia de usuario fluida. Construida con React y Tailwind CSS.",
 
-            fusion_bioart: "FusionBioArt es una plataforma web inmersiva que fusiona arte digital con elementos biotecnológicos",
-            fusion_bioart_desc: "Con una interfaz moderna y dinámica, esta plataforma muestra la intersección entre tecnología y arte biológico a través de experiencias interactivas.",
+            fusion_bioart: "FusionBioArt - Plataforma de Arte Digital",
+            fusion_bioart_desc: "Una plataforma web inmersiva que fusiona arte digital con elementos biotecnológicos. Cuenta con una interfaz moderna y dinámica con experiencias interactivas.",
 
-            oasis_var: "Oasis-Var es un entorno web inspirado en Ready Player One",
-            oasis_var_desc: "Diseñado para ser responsive, interactivo y visualmente atractivo, creando una experiencia digital inmersiva.",
+            oasis_var: "Oasis-Var Entorno Virtual",
+            oasis_var_desc: "Un entorno web inspirado en Ready Player One, diseñado para ser responsive, interactivo y visualmente atractivo, creando una experiencia digital inmersiva.",
 
-            pet_fashion: "Plataforma de comercio electrónico especializada en moda para mascotas",
-            pet_fashion_desc: "Con un diseño elegante y una interfaz intuitiva, una experiencia de compra única para los amantes de las mascotas."
+            pet_fashion: "PetCare Moda E-commerce",
+            pet_fashion_desc: "Plataforma de comercio electrónico especializada en moda para mascotas con un diseño elegante y una interfaz intuitiva, brindando una experiencia de compra única para los amantes de las mascotas."
         },
 
         // Blog

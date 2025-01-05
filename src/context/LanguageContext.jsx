@@ -35,16 +35,27 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(lang);
   };
 
-  // Función de traducción mejorada con fallback y advertencias
+  // Función de traducción mejorada para manejar claves anidadas
   const t = (key) => {
     try {
-      const translation = translations[language]?.[key];
-      if (!translation) {
-        console.warn(`Missing translation key: ${key} for language: ${language}`);
-        // Intentar usar el otro idioma como fallback
-        const fallbackTranslation = translations[language === 'es' ? 'en' : 'es']?.[key];
-        return fallbackTranslation || key;
+      // Dividimos la key por puntos para navegar el objeto
+      const keys = key.split('.');
+      let translation = translations[language];
+      
+      // Navegamos por el objeto de traducciones
+      for (const k of keys) {
+        translation = translation?.[k];
+        if (translation === undefined) {
+          console.warn(`Missing translation key: ${key} for language: ${language}`);
+          // Intentar usar el otro idioma como fallback
+          let fallbackTranslation = translations[language === 'es' ? 'en' : 'es'];
+          for (const fk of keys) {
+            fallbackTranslation = fallbackTranslation?.[fk];
+          }
+          return fallbackTranslation || key;
+        }
       }
+      
       return translation;
     } catch (error) {
       console.error('Translation error:', error);
@@ -54,7 +65,17 @@ export const LanguageProvider = ({ children }) => {
 
   // Función para verificar si una clave de traducción existe
   const hasTranslation = (key) => {
-    return Boolean(translations[language]?.[key]);
+    try {
+      const keys = key.split('.');
+      let translation = translations[language];
+      for (const k of keys) {
+        translation = translation?.[k];
+        if (translation === undefined) return false;
+      }
+      return true;
+    } catch {
+      return false;
+    }
   };
 
   const value = {
