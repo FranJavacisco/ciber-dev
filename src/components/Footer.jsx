@@ -51,7 +51,7 @@ const Footer = () => {
               className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 
                        text-transparent bg-clip-text"
             >
-              CiberDev
+              PanchoDev
             </motion.a>
             <p className="mt-2 dark:text-gray-400 text-gray-600">
               © 2024 PanchoDev. {t('')}
