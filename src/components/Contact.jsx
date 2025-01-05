@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Instagram } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import emailjs from '@emailjs/browser';
-import { CustomCaptcha } from '../ui/captcha';
+import { CustomCaptcha } from './ui/captcha';
 
 const Contact = () => {
   const { t } = useLanguage();
