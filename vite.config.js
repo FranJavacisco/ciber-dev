@@ -1,8 +1,18 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    process.env.ANALYZE === 'true' && visualizer({
+      filename: './dist/stats.html',
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+      template: 'treemap'
+    })
+  ].filter(Boolean),
   base: '/',
   server: {
     headers: {
@@ -22,13 +32,31 @@ export default defineConfig({
     }
   },
   build: {
+    sourcemap: false,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
     rollupOptions: {
       output: {
-        // Asegura que los assets tengan nombres consistentes
         assetFileNames: 'assets/[name].[hash].[ext]',
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js',
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['@headlessui/react', '@iconify/react', 'lucide-react'],
+          'animation-vendor': ['framer-motion'],
+          'email-vendor': ['@emailjs/browser']
+        }
       }
-    }
+    },
+    cssCodeSplit: true,
+    chunkSizeWarningLimit: 1500
+  },
+  optimizeDeps: {
+    exclude: ['@emailjs/browser'] // Excluye dependencias problemáticas
   }
 })

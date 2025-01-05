@@ -68,13 +68,10 @@ const translations = {
         project_titles: {
             universe_travel: "Dynamic and modern landing page for a space travel company",
             universe_travel_desc: "A modern web application for a space travel company featuring responsive design, interactive animations, and seamless user experience. Built with React and Tailwind CSS.",
-
             fusion_bioart: "FusionBioArt - Digital Art Platform",
             fusion_bioart_desc: "An immersive web platform that fuses digital art with biotechnological elements. Features a modern and dynamic interface with interactive experiences.",
-
             oasis_var: "Oasis-Var Virtual Environment",
             oasis_var_desc: "A web environment inspired by Ready Player One, designed to be responsive, interactive and visually appealing, creating an immersive digital experience.",
-
             pet_fashion: "PetCare Fashion E-commerce",
             pet_fashion_desc: "E-commerce platform specialized in pet fashion with an elegant design and intuitive interface, providing a unique shopping experience for pet lovers."
         },
@@ -107,6 +104,16 @@ const translations = {
         form_sending: 'Sending...',
         form_success: 'Message sent successfully!',
         form_error: 'Something went wrong. Please try again.',
+
+        // CAPTCHA
+        captcha_title: 'Security Verification',
+        captcha_instruction: 'Select matching patterns',
+        captcha_locked: 'Locked for {seconds}s',
+        captcha_refresh: 'Refresh CAPTCHA',
+        captcha_success: 'Verification successful!',
+        captcha_error: 'Please complete the CAPTCHA verification',
+        captcha_expired: 'CAPTCHA expired, please try again',
+        captcha_loading: 'Loading verification...',
 
         // Social
         social_follow: 'Follow Me',
@@ -183,13 +190,10 @@ const translations = {
         project_titles: {
             universe_travel: "Landing page dinámica y moderna para empresa de viajes espaciales",
             universe_travel_desc: "Una aplicación web moderna para una empresa de viajes espaciales con diseño responsive, animaciones interactivas y experiencia de usuario fluida. Construida con React y Tailwind CSS.",
-
             fusion_bioart: "FusionBioArt - Plataforma de Arte Digital",
             fusion_bioart_desc: "Una plataforma web inmersiva que fusiona arte digital con elementos biotecnológicos. Cuenta con una interfaz moderna y dinámica con experiencias interactivas.",
-
             oasis_var: "Oasis-Var Entorno Virtual",
             oasis_var_desc: "Un entorno web inspirado en Ready Player One, diseñado para ser responsive, interactivo y visualmente atractivo, creando una experiencia digital inmersiva.",
-
             pet_fashion: "PetCare Moda E-commerce",
             pet_fashion_desc: "Plataforma de comercio electrónico especializada en moda para mascotas con un diseño elegante y una interfaz intuitiva, brindando una experiencia de compra única para los amantes de las mascotas."
         },
@@ -222,6 +226,16 @@ const translations = {
         form_sending: 'Enviando...',
         form_success: '¡Mensaje enviado con éxito!',
         form_error: 'Algo salió mal. Por favor, intenta de nuevo.',
+
+        // CAPTCHA
+        captcha_title: 'Verificación de Seguridad',
+        captcha_instruction: 'Selecciona los patrones coincidentes',
+        captcha_locked: 'Bloqueado por {seconds}s',
+        captcha_refresh: 'Actualizar CAPTCHA',
+        captcha_success: '¡Verificación exitosa!',
+        captcha_error: 'Por favor completa la verificación CAPTCHA',
+        captcha_expired: 'CAPTCHA expirado, por favor intenta de nuevo',
+        captcha_loading: 'Cargando verificación...',
 
         // Social
         social_follow: 'Sígueme',
