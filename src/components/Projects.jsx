@@ -1,3 +1,5 @@
+// File path: src/components/Projects.js
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Code } from 'lucide-react';
@@ -12,7 +14,7 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      titleKey: 'Universe Travel',
+      titleKey: 'universe_travel',
       image: "/universe-travel.png",
       category: "frontend",
       tech: ["React", "Tailwind", "JavaScript (ES6+)", "Vite"],
@@ -23,7 +25,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      titleKey: 'Fusion Bioart',
+      titleKey: 'fusion_bioart',
       image: "/fusion-bioart.png",
       category: "frontend",
       tech: ["React", "Vite", "Tailwind", "Framer Motion"],
@@ -33,7 +35,7 @@ const Projects = () => {
     },
     {
       id: 3,
-      titleKey: 'Oasis Var',
+      titleKey: 'oasis_var',
       image: "/oasis-var.png",
       category: "frontend",
       tech: ["React", "Tailwind", "Vite"],
@@ -43,7 +45,7 @@ const Projects = () => {
     },
     {
       id: 4,
-      titleKey: 'Pet Fashion',
+      titleKey: 'pet_fashion',
       image: "/petcare.png",
       category: "frontend",
       tech: ["React", "Vite", "Tailwind"],
@@ -81,14 +83,14 @@ const Projects = () => {
     <section id="projects" className="py-20 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 transition-colors duration-300
-                    dark:bg-gradient-to-b dark:from-blue-950 dark:to-purple-950
-                    bg-gradient-to-b from-gray-50 to-purple-50">
+                      dark:bg-gradient-to-b dark:from-blue-950 dark:to-purple-950
+                      bg-gradient-to-b from-gray-50 to-purple-50">
         <div className="absolute top-1/4 right-0 w-96 h-96 
-                      dark:bg-purple-600/20 bg-purple-300/20 
-                      rounded-full blur-3xl"></div>
+                        dark:bg-purple-600/20 bg-purple-300/20 
+                        rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 
-                      dark:bg-blue-600/20 bg-blue-300/20 
-                      rounded-full blur-3xl"></div>
+                        dark:bg-blue-600/20 bg-blue-300/20 
+                        rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -143,21 +145,21 @@ const Projects = () => {
               whileHover={{ y: -5 }}
               className="group relative rounded-2xl overflow-hidden"
             >
-              {/* Card Background with Gradient */}
+              {/* Card Background */}
               <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-blue-900/50 dark:to-purple-900/50
-                           bg-white backdrop-blur-sm transition-colors duration-300"></div>
+                               bg-white backdrop-blur-sm transition-colors duration-300"></div>
               
               {/* Project Image */}
               <div className="relative aspect-video overflow-hidden">
                 <img
                   src={project.image}
-                  alt={t(`${project.titleKey}_title`)}
+                  alt={t(`project_titles.${project.titleKey}`)}
                   className="w-full h-full object-cover transition-transform duration-500 
-                           group-hover:scale-105"
+                             group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t 
-                              dark:from-blue-950/90 dark:to-transparent
-                              from-gray-900/90 to-transparent"></div>
+                                dark:from-blue-950/90 dark:to-transparent
+                                from-gray-900/90 to-transparent"></div>
               </div>
 
               {/* Category Badge */}
@@ -169,17 +171,17 @@ const Projects = () => {
                     ? 'dark:bg-blue-600/90 bg-blue-500 text-white'
                     : 'dark:bg-green-600/90 bg-green-500 text-white'}`}>
                   {project.icon}
-                  {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                  {t(`filter_${project.category}`)}
                 </span>
               </div>
 
               {/* Project Content */}
               <div className="relative p-6">
                 <h3 className="text-xl font-bold dark:text-white text-gray-900 mb-2">
-                  {t(`${project.titleKey}_title`)}
+                  {t(`project_titles.${project.titleKey}`)}
                 </h3>
                 <p className="dark:text-gray-300 text-gray-600 mb-4">
-                  {t(`${project.titleKey}_desc`)}
+                  {t(`project_titles.${project.titleKey}_desc`)}
                 </p>
 
                 {/* Tech Stack */}
@@ -188,7 +190,7 @@ const Projects = () => {
                     <span
                       key={tech}
                       className="px-3 py-1 text-sm dark:bg-blue-900/50 bg-blue-100
-                              dark:text-blue-300 text-blue-700 rounded-full"
+                                  dark:text-blue-300 text-blue-700 rounded-full"
                     >
                       {tech}
                     </span>
@@ -202,7 +204,7 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center dark:text-gray-300 text-gray-600
-                             hover:text-purple-500 transition-colors duration-300"
+                               hover:text-purple-500 transition-colors duration-300"
                   >
                     <Github className="w-5 h-5 mr-2" />
                     {t('view_code')}
@@ -212,7 +214,7 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center dark:text-gray-300 text-gray-600
-                             hover:text-purple-500 transition-colors duration-300"
+                               hover:text-purple-500 transition-colors duration-300"
                   >
                     <ExternalLink className="w-5 h-5 mr-2" />
                     {t('view_live')}
@@ -235,12 +237,12 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3 border-2
-                     dark:border-purple-500 border-purple-400
-                     dark:text-purple-400 text-purple-600
-                     hover:bg-purple-500 hover:text-white 
-                     dark:hover:border-purple-400
-                     rounded-full transition-all duration-300
-                     transform hover:scale-105"
+                       dark:border-purple-500 border-purple-400
+                       dark:text-purple-400 text-purple-600
+                       hover:bg-purple-500 hover:text-white 
+                       dark:hover:border-purple-400
+                       rounded-full transition-all duration-300
+                       transform hover:scale-105"
           >
             <Github className="w-5 h-5 mr-2" />
             {t('view_more')}
