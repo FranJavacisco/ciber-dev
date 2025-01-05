@@ -35,8 +35,8 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(lang);
   };
 
-  // Función de traducción mejorada para manejar claves anidadas
-  const t = (key) => {
+  // Función de traducción mejorada para manejar claves anidadas y variables
+  const t = (key, variables = {}) => {
     try {
       // Dividimos la key por puntos para navegar el objeto
       const keys = key.split('.');
@@ -52,11 +52,12 @@ export const LanguageProvider = ({ children }) => {
           for (const fk of keys) {
             fallbackTranslation = fallbackTranslation?.[fk];
           }
-          return fallbackTranslation || key;
+          return formatTranslation(fallbackTranslation || key, variables);
         }
       }
       
-      return translation;
+      // Procesar variables en la traducción
+      return formatTranslation(translation, variables);
     } catch (error) {
       console.error('Translation error:', error);
       return key;
@@ -78,12 +79,34 @@ export const LanguageProvider = ({ children }) => {
     }
   };
 
+  // Función para formatear números según el idioma
+  const formatNumber = (number, options = {}) => {
+    try {
+      return new Intl.NumberFormat(language, options).format(number);
+    } catch (error) {
+      console.error('Number formatting error:', error);
+      return number.toString();
+    }
+  };
+
+  // Función para formatear fechas según el idioma
+  const formatDate = (date, options = {}) => {
+    try {
+      return new Intl.DateTimeFormat(language, options).format(date);
+    } catch (error) {
+      console.error('Date formatting error:', error);
+      return date.toString();
+    }
+  };
+
   const value = {
     language,
     toggleLanguage,
     setLanguage: setLanguageTo,
     t,
     hasTranslation,
+    formatNumber,
+    formatDate,
     isSpanish: language === 'es',
     isEnglish: language === 'en',
   };
@@ -106,8 +129,9 @@ export const useLanguage = () => {
 
 // Función auxiliar para formatear textos con variables
 export const formatTranslation = (text, variables) => {
+  if (typeof text !== 'string') return text;
   return text.replace(/\{(\w+)\}/g, (match, key) => {
-    return variables[key] || match;
+    return variables[key] !== undefined ? variables[key] : match;
   });
 };
 
@@ -115,6 +139,8 @@ export const formatTranslation = (text, variables) => {
 export const withTranslation = (WrappedComponent) => {
   return function WithTranslationComponent(props) {
     const languageContext = useLanguage();
-    return <WrappedComponent {...props} t={languageContext.t} />;
+    return <WrappedComponent {...props} {...languageContext} />;
   };
 };
+
+export default LanguageContext;
