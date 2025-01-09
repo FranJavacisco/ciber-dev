@@ -5,15 +5,15 @@ import { useLanguage } from '../context/LanguageContext';
 const MOCK_POSTS = [
     {
         id: 1,
-        title: "Introducción a la Seguridad Web",
-        title_en: "Introduction to Web Security",
-        excerpt: "Explorando los fundamentos de la seguridad web y las mejores prácticas...",
-        excerpt_en: "Exploring the fundamentals of web security and best practices...",
+        title: "RansomLook Tu Aliado Contra el Ransomware en Tiempo Real",
+        title_en: "RansomLook Your Ally Against Ransomware in Real Time",
+        excerpt: "El ransomware es una de las amenazas cibernéticas más desafiantes de nuestro tiempo. En este contexto, herramientas como RansomLook han surgido para ayudar...",
+        excerpt_en: "Ransomware is one of the most challenging cyber threats of our time. In this context, tools like RansomLook have emerged to help...",
         image: "/post1.png",
-        date: "2024-03-20",
-        linkedinUrl: "https://www.linkedin.com/pulse/shodan-el-buscador-que-revolucion%C3%B3-la-ciberseguridad-lopez-c95be/",
+        date: "2025-01-09",
+        linkedinUrl: "https://www.linkedin.com/pulse/ransomlook-tu-aliado-contra-el-ransomware-en-tiempo-real-lopez-ut7pe/?trackingId=HyPZacBbTzCsT%2BaqquojCQ%3D%3D",
         tags: ["security", "development"],
-        readTime: "5 min"
+        readTime: "8 min"
     },
     {
         id: 2,
