@@ -7,7 +7,6 @@ import {
   Cloud,
   Terminal,
   Cpu,
-  React as ReactIcon,
   Monitor,
   Lock,
   Key,
@@ -16,7 +15,8 @@ import {
   Cloud as CloudIcon,
   Box,
   Container,
-  Gauge
+  Gauge,
+  CircuitBoard
 } from 'lucide-react';
 
 const Skills = () => {
@@ -28,7 +28,7 @@ const Skills = () => {
       title: 'skills_card_1_title',
       desc: 'skills_card_1_desc',
       technologies: [
-        { name: 'React', icon: <ReactIcon size={48} /> },
+        { name: 'React', icon: <CircuitBoard size={48} /> },
         { name: 'Vue', icon: <Monitor size={48} /> },
         { name: 'Angular', icon: <Globe size={48} /> },
       ],
@@ -111,7 +111,7 @@ const Skills = () => {
           {skills.map((skill) => (
             <div
               key={skill.title}
-              className="group transform transition duration-300 hover:scale-102"
+              className="group transform transition duration-300 hover:scale-105"
             >
               <div className="p-8 rounded-2xl backdrop-blur-sm
                             dark:bg-blue-900/30 bg-white/80
