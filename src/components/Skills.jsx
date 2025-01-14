@@ -1,91 +1,89 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Icon } from '@iconify/react';
 import { useLanguage } from '../context/LanguageContext';
+import { 
+  Code2, 
+  Shield, 
+  Database, 
+  Cloud,
+  Terminal,
+  Cpu,
+  React as ReactIcon,
+  Monitor,
+  Lock,
+  Key,
+  Server,
+  Globe,
+  Cloud as CloudIcon,
+  Box,
+  Container,
+  Gauge
+} from 'lucide-react';
 
 const Skills = () => {
   const { t } = useLanguage();
 
   const skills = [
     {
-      icon: <Icon icon="vscode-icons:file-type-js-official" width="40" height="40" />,
+      icon: <Code2 size={40} className="dark:text-purple-400 text-purple-600" />,
       title: 'skills_card_1_title',
       desc: 'skills_card_1_desc',
       technologies: [
-        { name: 'React', icon: 'logos:react' },
-        { name: 'Vue', icon: 'logos:vue' },
-        { name: 'Angular', icon: 'logos:angular-icon' },
+        { name: 'React', icon: <ReactIcon size={48} /> },
+        { name: 'Vue', icon: <Monitor size={48} /> },
+        { name: 'Angular', icon: <Globe size={48} /> },
       ],
     },
     {
-      icon: <Icon icon="mdi:shield-outline" width="40" height="40" />,
+      icon: <Shield size={40} className="dark:text-purple-400 text-purple-600" />,
       title: 'skills_card_2_title',
       desc: 'skills_card_2_desc',
       technologies: [
-        { name: 'OWASP', icon: 'simple-icons:owasp' }, 
-        { name: 'Auth0', icon: 'logos:auth0' },
-        { name: 'JWT', icon: 'logos:jwt' },
+        { name: 'OWASP', icon: <Lock size={48} /> },
+        { name: 'Auth0', icon: <Key size={48} /> },
+        { name: 'JWT', icon: <Shield size={48} /> },
       ],
     },
     {
-      icon: <Icon icon="ant-design:database-outlined" width="40" height="40" />,
+      icon: <Database size={40} className="dark:text-purple-400 text-purple-600" />,
       title: 'skills_card_3_title',
       desc: 'skills_card_3_desc',
       technologies: [
-        { name: 'Node.js', icon: 'logos:nodejs-icon' },
-        { name: 'Django', icon: 'logos:django-icon' },
-        { name: 'Laravel', icon: 'logos:laravel' },
+        { name: 'Node.js', icon: <Server size={48} /> },
+        { name: 'Django', icon: <Database size={48} /> },
+        { name: 'Laravel', icon: <Globe size={48} /> },
       ],
     },
     {
-      icon: <Icon icon="mdi:cloud-outline" width="40" height="40" />,
+      icon: <Cloud size={40} className="dark:text-purple-400 text-purple-600" />,
       title: 'skills_card_4_title',
       desc: 'skills_card_4_desc',
       technologies: [
-        { name: 'AWS', icon: 'logos:aws' },
-        { name: 'GCP', icon: 'logos:google-cloud' },  
-        { name: 'Azure', icon: 'logos:microsoft-azure' },
+        { name: 'AWS', icon: <CloudIcon size={48} /> },
+        { name: 'GCP', icon: <Cloud size={48} /> },
+        { name: 'Azure', icon: <Cloud size={48} /> },
       ],
     },
     {
-      icon: <Icon icon="mdi:console" width="40" height="40" />,
+      icon: <Terminal size={40} className="dark:text-purple-400 text-purple-600" />,
       title: 'skills_card_5_title',
       desc: 'skills_card_5_desc',
       technologies: [
-        { name: 'Docker', icon: 'logos:docker-icon' },
-        { name: 'Kubernetes', icon: 'logos:kubernetes' },
-        { name: 'Ansible', icon: 'logos:ansible' },  
+        { name: 'Docker', icon: <Box size={48} /> },
+        { name: 'Kubernetes', icon: <Container size={48} /> },
+        { name: 'Ansible', icon: <Terminal size={48} /> },
       ],
     },
     {
-      icon: <Icon icon="mdi:chip" width="40" height="40" />,
+      icon: <Cpu size={40} className="dark:text-purple-400 text-purple-600" />,
       title: 'skills_card_6_title',
       desc: 'skills_card_6_desc',
       technologies: [
-        { name: 'Lighthouse', icon: 'logos:lighthouse' },
-        { name: 'WebPageTest', icon: 'material-symbols:speed' },
-        { name: 'GTmetrix', icon: 'material-symbols:analytics-outline' },
+        { name: 'Lighthouse', icon: <Gauge size={48} /> },
+        { name: 'WebPageTest', icon: <Gauge size={48} /> },
+        { name: 'GTmetrix', icon: <Gauge size={48} /> },
       ],
     },
   ];
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    show: { 
-      y: 0, 
-      opacity: 1
-    }
-  };
 
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
@@ -100,40 +98,27 @@ const Skills = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl font-bold dark:text-white text-gray-900 mb-4">
             {t('skills_title')}
           </h2>
           <p className="text-lg dark:text-gray-300 text-gray-600 max-w-2xl mx-auto">
             {t('skills_subtitle')}
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skill) => (
-            <motion.div
+            <div
               key={skill.title}
-              variants={item}
-              whileHover={{ scale: 1.02 }}
-              className="group"
+              className="group transform transition duration-300 hover:scale-102"
             >
               <div className="p-8 rounded-2xl backdrop-blur-sm
                             dark:bg-blue-900/30 bg-white/80
                             border dark:border-blue-800/50 border-gray-200
                             transition duration-300
                             group-hover:dark:bg-blue-900/50 group-hover:bg-white/90">
-                <div className="dark:text-purple-400 text-purple-600 mb-4">
+                <div className="mb-4">
                   {skill.icon}
                 </div>
                 
@@ -148,7 +133,9 @@ const Skills = () => {
                 <div className="grid grid-cols-3 gap-4">
                   {skill.technologies.map((tech) => (
                     <div key={tech.name} className="flex flex-col items-center gap-2">
-                      <Icon icon={tech.icon} width="48" height="48" />
+                      <div className="dark:text-gray-300 text-gray-600">
+                        {tech.icon}
+                      </div>
                       <span className="text-sm dark:text-gray-300 text-gray-600">
                         {tech.name}
                       </span>
@@ -156,9 +143,9 @@ const Skills = () => {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
